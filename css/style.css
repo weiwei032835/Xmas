@@ -1,0 +1,124 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css); *{ font-family:'Noto Sans TC','微軟正黑體'; }
+*,*::before,*::after{ margin:0px; padding:0px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+.clearfix:after{ content:''; display:block; height:0; clear:both; visibility:hidden; }
+html,body{ background-color:#af222e; background-image:url(../images/bg_pc.png); background-size:100% auto; }
+
+
+/*防止 滾動更新*/
+body{overscroll-behavior:contain;}	
+
+button{letter-spacing:2px; cursor:pointer; border:none;  }
+
+/*wrapper =====================*/
+.wrapper{ width:100%; max-width:1200px; margin:0 auto; border:0px solid #333; }
+
+
+/*頁尾 footer =====================*/
+.footer{ width:100%; height:15dvh; position:fixed; left:0; bottom:0; pointer-events:none;}
+/*背景圖*/
+.footer img{display:block;width:100%;}
+.footer .mb_deco{display:none;}
+
+/*1280px*/
+@media only screen and (max-width:1280px){ /*頁尾 footer*/.footer{ height:10dvh; }}
+
+/*820px*/
+@media only screen and (max-width:820px){
+    /*頁尾 footer*/
+    .footer .pc_deco{display:none;}
+    .footer .mb_deco{display:block;}
+}
+
+/*414px*/
+@media only screen and (max-width:414px){ /*頁尾 footer*/.footer{ height:10dvh; }}
+
+
+
+/*.container 卡片製作區===================*/
+.container{ width:100%; max-width:500px; margin:0 auto; position:absolute; left:50%; top:350px; transform:translate(-50%, -50%); padding:10px; border:0px solid blue; }
+
+/*414px*/
+@media only screen and (max-width:414px){ /*製作區*/.container{ top:320px}}
+
+/*375px*/
+@media only screen and (max-width:375px){ /*製作區*/.container{ top:280px}}
+
+
+/*gallery =======================*/
+.gallery{ margin-bottom:15px; box-shadow:0px 2px 5px #390409;}
+
+/*nav 主選單 =======================*/
+.nav{--count:6; gap:20px; 
+    display:flex; flex-wrap:wrap; justify-self:flex-start; align-content:flex-start; justify-content:center;
+    margin-bottom:15px; border:0px solid blue; }
+
+/*768px*/
+@media only screen and (max-width:768px){ .nav{ gap:12px; }}
+
+/*按鈕*/
+.nav button{ width:calc( (100% - (var(--count) - 1) * 0px) / var(--count) );
+padding:5px; font-size:16px; color:#fff; background-image:linear-gradient(15deg, #13547a 0%, #0aae9b 100%); box-shadow:0 3px 0 0 #61886b; cursor:pointer; border-radius:5px; border:none; }
+
+/*current*/
+.nav button.current{background-image:linear-gradient(10deg, #580707 0%, #770303 100%);box-shadow:0 2px 0 0 #ff7070;}
+
+
+/*.menu 共用=======================*/
+.menu ul{ display:flex; flex-direction:row; justify-content:space-around; align-items:center; margin-bottom:20px; border:0px solid darkred; }
+
+.menu ul li{ width:80px; height:80px; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; text-align:center; text-shadow:0px 0px 3px #000,0px 0px 3px #000; letter-spacing:2px; overflow:hidden; cursor:pointer; border-radius:6px; border:0px solid darkred; }
+
+/*current*/	
+.menu ul li.current{background:#f7e4c6; box-shadow:0px 0px 15px rgb(255, 72, 90); border:4px solid orange;}
+
+/*縮圖*/
+.menu ul li img{ display:block; width:100%; }
+
+
+/*.menu.bg 背景色 ========*/
+.menu.bg ul li{ width:60px; height:60px; box-shadow:1px 2px 3px rgba(0,0,0,0.5), inset 0px 0px 0px 2px #fff;/*陰影作的框*/ }
+.menu.bg ul li:nth-child(1){ background-color:#8f2626; }
+.menu.bg ul li:nth-child(2){ background-color:#f5deb3; }
+.menu.bg ul li:nth-child(3){ background-color:#01868b; }
+.menu.bg ul li:nth-child(4){ background-color:#0f68ae; }
+
+/*.menu.theme 主題 ===========*/
+.menu.theme{}
+.menu.theme ul li{ }
+
+/*上傳圖當背景*/
+.menu.theme li:nth-of-type(1){ background-color:#227f82; background-size:cover;  }
+
+/*.menu.deco 裝飾=========*/
+.menu.deco ul li{ width:60px; height:60px; }
+
+/*.menu.frame 邊框 ==========*/
+.menu.frame ul li{}
+
+/*按鈕 產生卡片 打開 dialog =============*/
+.btn_gen{ display:block; width:60%; height:36px; margin:0 auto; padding-left:10px; background-color:#fff; font-size:clamp(12px,5vw,16px); font-weight:600; color:#c00; box-shadow:0 3px 0 0 #ff7070; border-radius:18px; }
+
+
+/*.dialog 對話窗 共用 ===================*/
+.dialog{ width:100%; height:100%; background:rgba(0,0,0,0.75); position:fixed; left:0px;top:0px; z-index:70; border:0px solid red; display:none;/* block*/ }
+
+/*內文 inner*/
+.dialog .inner{ width:300px; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); overflow:hidden; border-radius:20px; background:#830e17;}
+.dialog .inner h2{margin-bottom:20px; padding:5px;background-color:#bc1f2c; color:#fff; font-size:clamp(12px,5vw,20px); text-align:center; letter-spacing:3px; }
+
+.dialog .inner img{ display:block; width:90%; margin:0 auto 10px auto; box-shadow:0px 2px 5px #390409; }
+.dialog .inner span{ display:block; width:80%; margin:0 auto 5px; color:#fff; font-size:16px; font-weight:400; }
+.dialog .inner span:last-child{margin-bottom:20px;}
+
+/*375px*/
+@media only screen and (max-width:375px){
+    .dialog .inner{width:260px; }
+}
+
+/*按鈕 關閉模組*/
+.dialog .btn_close{ display:block; width:44px; height:44px; background:#fc3e3e; 
+position:absolute; right:10px; top:10px; z-index:20; border:0px solid #fff;}
+.dialog .btn_close::before,.dialog .btn_close::after{ content:""; display:block; width:28px; height:3px; position:absolute; background:#fff; top:50%; left:50%; transform:translate(-50%,-50%); }
+.dialog .btn_close::before{ transform:translate(-50%,-50%) rotate(45deg); }
+.dialog .btn_close::after{ transform:translate(-50%,-50%) rotate(-45deg); }
+

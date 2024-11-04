@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<link rel="shortcut icon" href="#" />
+	<!-- Bootstrap Icons font -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+	<title>聖誕節卡片產生器 | ETtoday 新聞雲</title>
+
+	<!-- push 圖 開始 -->
+	<meta property="og:image" itemprop="image" content="images/push.png" />
+	<meta name="description" content="溫馨聖誕夜的卡片製造機，ETtoday將祝福化作聖誕驚喜。" />
+
+	<!-- touch icon 開始 -->
+	<link rel="apple-touch-icon" sizes="180x180" href="images/touch-icon.png" />
+	<link rel="shortcut icon" sizes="192x192" href="images/touch-icon.png" />
+	<!-- touch icon 結束 -->
+
+	<!-- jq -->
+	<script src="js/jquery.js"></script>
+
+	<!-- fabric -->
+	<script src="js/fabric.min.js"></script>
+	<script src="js/fabric_controls_icon.js" rel="旋轉 刪除 icon"></script>
+	<script src="js/fabricCrop/fabricCrop.js"></script>
+	<link href="js/fabricCrop/fabricCrop.css" rel="stylesheet" type="text/css"/>
+
+	<!-- css js -->
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/make.js"></script>
+
+</head>
+
+<body>
+	
+	<!--wrapper 開始-->
+	<div class="wrapper">
+
+		<!--container 開始-->
+		<div class="container">
+			<!--gallery 開始-->
+			<div class="gallery">
+				<canvas id="myCanvas_1"></canvas>
+			</div>
+			<!--gallery 結束-->
+			
+			<!--nav 開始-->
+			<div class="nav">
+				<button>底色</button>
+				<button>主題</button>
+				<button>裝飾</button>
+				<button>祝福</button>
+				<button>邊框</button>
+			</div>
+			<!--nav 結束-->
+			
+			<!--背景色 開始-->
+			<div class="menu bg">
+				<ul>
+					<li data-cr="maroon"></li>
+					<li data-cr="#f5deb3"></li>
+					<li data-cr="#01868b"></li>
+					<li class="current" data-cr="#0f68ae"></li>
+				</ul>
+			</div>
+			<!--背景色 結束-->
+
+			<!--主題 開始-->
+			<div class="menu theme">
+				<ul>
+					<li><i class="bi bi-image-fill"></i>上傳圖</li>
+					<li class="current" data-theme-url="theme_0.png"><img src="images/theme_0s.png"></li>
+					<li data-theme-url="theme_1.png"><img src="images/theme_1s.png"></li>
+					<li data-theme-url="theme_2.png"><img src="images/theme_2s.png"></li>
+				</ul>
+			</div>
+			<!--主題 結束-->
+
+			<!--裝飾 開始-->
+			<div class="menu deco">
+				<ul>
+					<li data-deco-url="deco_0.png"><img src="images/deco_0s.png"></li>
+					<li data-deco-url="deco_1.png"><img src="images/deco_1s.png"></li>
+					<li data-deco-url="deco_2.png"><img src="images/deco_2s.png"></li>
+					<li data-deco-url="deco_3.png"><img src="images/deco_3s.png"></li>
+					<li data-deco-url="deco_4.png"><img src="images/deco_4s.png"></li>
+				</ul>
+			</div>
+			<!--裝飾 結束-->
+
+			<!--祝福 開始-->
+			<div class="menu wish">
+				<ul>
+					<li class="current" data-wish-url="wish_0.png"><img src="images/wish_0s.png" ></li>
+					<li data-wish-url="wish_1.png"><img src="images/wish_1s.png" ></li>
+					<li data-wish-url="wish_2.png"><img src="images/wish_2s.png" ></li>
+					<li data-wish-url="wish_3.png"><img src="images/wish_3s.png" ></li>
+				</ul>
+			</div>
+			<!--祝福 結束-->
+
+			<!--框 開始-->
+			<div class="menu frame">
+				<ul>
+					<li class="current" data-frame-url="frame_3.png"><img src="images/frame_3s.png"></li>
+					<li data-frame-url="frame_1.png"><img src="images/frame_1s.png"></li>
+					<li data-frame-url="frame_2.png"><img src="images/frame_2s.png"></li>
+					<li data-frame-url="frame_0.png"><img src="images/frame_0s.png"></li>
+				</ul>
+			</div>
+			<!--框 結束-->
+
+			<!--下載 開始-->
+			<button class="btn_gen">獲得聖誕卡片<i class="bi bi-caret-right-fill"></i>
+			</button>
+			<!--下載 結束-->
+
+		</div>
+		<!--container 結束-->
+
+		<!--裝飾 footer 開始-->
+		<div class="footer">
+			<img class="pc_deco" src="images/pc_deco_2.png"></a>
+			<img class="mb_deco" src="images/mb_deco_2.png"></a>
+		</div>
+		<!--裝飾 footer 結束-->
+		
+		<!--對話窗 dialog_download 下載 開始-->
+		<div class="dialog dialog_download">
+			<button class="btn_close"></button>
+			<div class="inner">
+				<h2><i class="bi bi-snow2"></i> 下載聖誕卡 <i class="bi bi-snow2"></i></h2>
+				<a class="btn_download" href="#" download="聖誕卡片.png" target="_blank">
+					<img src="images/no-pic.jpg">
+				</a>
+				<span><i class="bi bi-circle-fill"></i>&ensp;手機長按『圖片』三秒保存</span>
+				<span><i class="bi bi-circle-fill"></i>&ensp;電腦版點擊下載圖片</span>
+			</div>
+		</div>
+		<!--對話窗 dialog_download 下載 結束-->
+
+	</div>
+	<!--wrapper 結束-->
+
+</body>
+
+</html>
